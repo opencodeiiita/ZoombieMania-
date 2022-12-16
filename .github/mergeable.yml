@@ -1,0 +1,26 @@
+version: 2
+mergeable:
+    - when: pull_request.*
+      validate:
+          - do: description
+            must_include:
+                regex: "^Issue: ([0-9]+)"
+                message: "The Pull Request description does not match the required format. Please include `Issue: <Issue Number>` in the beginning of your PR description."
+    - when: pull_request.*, pull_request_review.*
+        name: 'Approval check'
+        validate:
+          - do: approvals
+            min:
+              count: 1
+            limit:
+              users: [ 'Atharv23m' ]
+    - when: pull_request.opened
+      name: "Greet a contributor"
+      validate: []
+      pass:
+        - do: comment
+          payload:
+            body: >
+              Thanks for creating a new PR ❤. The mentors will soon review your work.
+        - do: request_review
+            reviewers: [ 'Atharv23m' ]
