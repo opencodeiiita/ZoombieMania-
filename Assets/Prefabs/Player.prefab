@@ -113,6 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a548817f36e1e10478b1f04640e4ca7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  speed: 1
+  moveVector: {x: 0, y: 0, z: 0}
 --- !u!143 &1682562077092035152
 CharacterController:
   m_ObjectHideFlags: 0
@@ -143,3 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeae037adc48ecf44865c76d87c3dd35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 0}
+  bulletPrefab: {fileID: 4556571905436952941, guid: cbb1b8160544b9a4b8b1f568b2a88b68,
+    type: 3}
+  bulletSpeed: 10
