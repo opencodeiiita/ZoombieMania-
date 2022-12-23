@@ -9,6 +9,7 @@ public class Player_Movement : MonoBehaviour
     public CharacterController controller;
     public float speed = 1f;
     public Vector3 moveVector;
+    
     // Start is called before the first frame update
     void Start()
     {
