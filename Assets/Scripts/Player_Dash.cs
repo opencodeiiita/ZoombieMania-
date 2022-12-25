@@ -20,7 +20,7 @@ public class Player_Dash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
+       if(Input.GetKeyDown(KeyCode.Space)){
 
             StartCoroutine(Dash());
         }
@@ -39,7 +39,7 @@ public class Player_Dash : MonoBehaviour
         {  
             if(moveScript.moveVector == Vector3.zero){
                 
-                moveScript.controller.Move(transform.right* dashSpeed *Time.deltaTime);
+                moveScript.controller.Move(transform.forward* dashSpeed *Time.deltaTime);
             }
             else{
             moveScript.controller.Move(moveScript.moveVector * dashSpeed *Time.deltaTime);

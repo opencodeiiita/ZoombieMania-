@@ -51,9 +51,7 @@ public class Player_Shoot : MonoBehaviour
     void shoot()
     {
         currentTime -= Time.deltaTime;  
-        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);
+
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
