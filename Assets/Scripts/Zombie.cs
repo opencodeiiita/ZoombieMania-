@@ -26,10 +26,15 @@ public class Zombie : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        health--;
-        if (health == 0)
+        if(collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            health-- ;
         }
+        
     }
 }
