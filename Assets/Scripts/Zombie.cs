@@ -7,13 +7,14 @@ using UnityEngine.AI;
 public class Zombie : MonoBehaviour
 {
     private NavMeshAgent zombie;
-    public Transform PlayerTarget;
+    private Transform PlayerTarget;
     private int health = 5;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerTarget = GameObject.FindWithTag("Player").GetComponent<Transform>();
         zombie = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
