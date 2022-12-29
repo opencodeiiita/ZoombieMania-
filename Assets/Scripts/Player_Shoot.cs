@@ -72,7 +72,7 @@ public class Player_Shoot : MonoBehaviour
             RaycastHit hit;
             Physics.Raycast(tppCam.transform.position , tppCam.transform.forward , out hit );
            
-           
+            
             currentAmmo--;
             bulletsUI.text = currentAmmo.ToString();
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
@@ -81,7 +81,8 @@ public class Player_Shoot : MonoBehaviour
             time =0f;
         }
         if(currentTime <=0)
-        {
+        {   
+            Debug.Log(currentAmmo);
             currentAmmo = maxAmmo;
             bulletsUI.text = currentAmmo.ToString();
             currentTime = 2.0f;

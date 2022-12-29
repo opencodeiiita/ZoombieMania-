@@ -15,7 +15,8 @@ public class Player_Movement : MonoBehaviour
     private float lastTime = 0f;
     public float gravity = -9.8f;
 
-
+    [SerializeField]
+    LayerMask ground;
 
     [SerializeField]
     private float rotationSpeed = 10f;
@@ -64,10 +65,14 @@ public class Player_Movement : MonoBehaviour
         Vector3 movementInput = Quaternion.Euler(0, followCamera.transform.eulerAngles.y, 0) * new Vector3(horizontalInput,0, verticalInput);
         Vector3 movementDirection = movementInput.normalized;
         
-        bool mouseMove ;
+       
     
-
+    
         controller.Move(movementDirection * forwardSpeed * Time.deltaTime);
+
+        if(!IsGrounded()){
+            controller.Move(Vector3.up * gravity * Time.deltaTime);
+        }
 
           if (movementDirection != Vector3.zero ) 
         {   
@@ -83,5 +88,9 @@ public class Player_Movement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
        
+    }
+
+    bool IsGrounded(){
+        return Physics.CheckSphere(transform.position, .1f , ground);
     }
 }
