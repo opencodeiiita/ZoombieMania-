@@ -42,7 +42,7 @@ public class Player_Dash : MonoBehaviour
                 moveScript.controller.Move(transform.forward* dashSpeed *Time.deltaTime);
             }
             else{
-            moveScript.controller.Move(moveScript.moveVector * dashSpeed *Time.deltaTime);
+            moveScript.controller.Move(moveScript.transform.forward * dashSpeed *Time.deltaTime);
             }
             yield return null;
         }
