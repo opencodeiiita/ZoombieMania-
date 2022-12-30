@@ -9,6 +9,8 @@ public class Zombie : MonoBehaviour
     private NavMeshAgent zombie;
     private Transform PlayerTarget;
     private int health = 5;
+
+    
     
 
     // Start is called before the first frame update
@@ -33,8 +35,9 @@ public class Zombie : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            else
+            else{
             health-- ;
+            }
         }
         
     }
