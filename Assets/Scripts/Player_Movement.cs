@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Movement : MonoBehaviour
 {    
@@ -23,13 +24,18 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField]
     private Camera followCamera;
+
+    private float playerhealth = 10;
+    public Slider slider;
   
 
     private void Start() 
     {
+        controller = GetComponent<CharacterController>();
         controller = GetComponent<CharacterController>();    
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        slider.value = 10;
     }
 
     private void Update() 
@@ -37,9 +43,11 @@ public class Player_Movement : MonoBehaviour
         moveVector = Vector3.zero;
         moveVector.x = Input.GetAxisRaw("Horizontal");
         moveVector.z = Input.GetAxisRaw("Vertical");
+
+        Movement();
+        slider.value =  playerhealth;
         
-        Movement();    
-        
+
     }
 
     void Movement() 
@@ -73,7 +81,14 @@ public class Player_Movement : MonoBehaviour
         if(!IsGrounded()){
             controller.Move(Vector3.up * gravity * Time.deltaTime);
         }
+    }
 
+    private void OnCollisionEnter(Collision obj)
+    {
+        if (obj.gameObject.CompareTag("Enemy"))
+        {
+            playerhealth = playerhealth-0.1f;
+        }
           if (movementDirection != Vector3.zero ) 
         {   
         
