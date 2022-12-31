@@ -24,7 +24,8 @@ public class Player_Shoot : MonoBehaviour
     private float currentTime = 2.0f;
     input_system _input;
 
-  
+
+
     void Start()
     { 
        currentAmmo = maxAmmo;
@@ -70,13 +71,12 @@ public class Player_Shoot : MonoBehaviour
         if ( _input.fire && time >= nextTimeFire )
         {  
             RaycastHit hit;
-            Physics.Raycast(tppCam.transform.position , tppCam.transform.forward , out hit );
-           
+            Physics.Raycast(tppCam.transform.position , tppCam.transform.forward ,out hit );
             
             currentAmmo--;
             bulletsUI.text = currentAmmo.ToString();
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = (hit.point - bulletSpawnPoint.position).normalized * bulletSpeed;
+            bullet.GetComponent<Rigidbody>().AddForce((hit.point - bulletSpawnPoint.position).normalized * bulletSpeed , ForceMode.VelocityChange);
             currentTime = 2.0f;
             time =0f;
         }
@@ -89,5 +89,5 @@ public class Player_Shoot : MonoBehaviour
         }
     }
 
-    
+
 }

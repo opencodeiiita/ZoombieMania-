@@ -2,17 +2,17 @@
     "name": "New Controls",
     "maps": [
         {
-            "name": "New action map",
+            "name": "Mouse",
             "id": "692f84df-39fc-47bb-aa92-de331b54d583",
             "actions": [
                 {
-                    "name": "Fire",
+                    "name": "Mouse Fire",
                     "type": "Button",
                     "id": "6ff77442-567b-49ab-94eb-d3763e7f90fd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -23,12 +23,29 @@
                     "interactions": "Hold",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire",
+                    "action": "Mouse Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Mouse Keyboard",
+            "bindingGroup": "Mouse Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

@@ -35,7 +35,7 @@ public class Player_Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();    
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        slider.value = 10;
+        //slider.value = 10;
     }
 
     private void Update() 
@@ -43,10 +43,9 @@ public class Player_Movement : MonoBehaviour
         moveVector = Vector3.zero;
         moveVector.x = Input.GetAxisRaw("Horizontal");
         moveVector.z = Input.GetAxisRaw("Vertical");
-
         Movement();
-        slider.value =  playerhealth;
-        
+        //slider.value =  playerhealth;
+     
 
     }
 
@@ -72,10 +71,23 @@ public class Player_Movement : MonoBehaviour
 
         Vector3 movementInput = Quaternion.Euler(0, followCamera.transform.eulerAngles.y, 0) * new Vector3(horizontalInput,0, verticalInput);
         Vector3 movementDirection = movementInput.normalized;
-        
-       
-    
-    
+
+        if (movementDirection != Vector3.zero)
+        {
+
+            Quaternion desiredRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+            Quaternion targetRotation = Quaternion.Euler(0, followCamera.transform.eulerAngles.y, 0);
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+
+
         controller.Move(movementDirection * forwardSpeed * Time.deltaTime);
 
         if(!IsGrounded()){
@@ -89,19 +101,7 @@ public class Player_Movement : MonoBehaviour
         {
             playerhealth = playerhealth-0.1f;
         }
-          if (movementDirection != Vector3.zero ) 
-        {   
-        
-            Quaternion desiredRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
-         
-        } 
-        else{
-            Quaternion targetRotation = Quaternion.Euler(0, followCamera.transform.eulerAngles.y, 0);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
+          
        
     }
 
