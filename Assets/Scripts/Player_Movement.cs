@@ -35,7 +35,7 @@ public class Player_Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();    
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        //slider.value = 10;
+        slider.value = 10;
     }
 
     private void Update() 
@@ -44,7 +44,7 @@ public class Player_Movement : MonoBehaviour
         moveVector.x = Input.GetAxisRaw("Horizontal");
         moveVector.z = Input.GetAxisRaw("Vertical");
         Movement();
-        //slider.value =  playerhealth;
+        slider.value =  playerhealth;
      
 
     }
