@@ -95,7 +95,7 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision obj)
+    private void OnCollisionStay(Collision obj)
     {
         if (obj.gameObject.CompareTag("Enemy"))
         {

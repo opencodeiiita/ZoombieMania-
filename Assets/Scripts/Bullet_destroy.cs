@@ -10,4 +10,9 @@ public class Bullet_destroy : MonoBehaviour
     {
         Destroy(gameObj, BulletDestroyTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObj);
+    }
 }

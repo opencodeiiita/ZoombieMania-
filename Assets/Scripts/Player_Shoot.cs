@@ -13,6 +13,7 @@ public class Player_Shoot : MonoBehaviour
     private Transform playerTransform;
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
+    public GameObject cursor;
     public float bulletSpeed =10f;
     public float fireRate;
     private float time=0f;
@@ -72,7 +73,7 @@ public class Player_Shoot : MonoBehaviour
         {  
             RaycastHit hit;
             Physics.Raycast(tppCam.transform.position , tppCam.transform.forward ,out hit );
-            
+            //cursor.transform.position = hit.point;
             currentAmmo--;
             bulletsUI.text = currentAmmo.ToString();
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
