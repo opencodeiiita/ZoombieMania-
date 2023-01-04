@@ -871,7 +871,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 39.73266
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mouseSensitivity: 3
   _target: {fileID: 1555140005}
-  _distanceFromTarget: 5
+  _distanceFromTarget: 10
   _shoulderDistance: 3.96
   _smoothTime: 0
   _rotationXMinMax: {x: -40, y: 40}
