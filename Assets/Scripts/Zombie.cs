@@ -9,7 +9,7 @@ public class Zombie : MonoBehaviour
     private NavMeshAgent zombie;
     private Transform PlayerTarget;
     private int health = 5;
-
+    private Animator zombieAnim;
     
     
 
@@ -18,6 +18,7 @@ public class Zombie : MonoBehaviour
     {
         PlayerTarget = GameObject.FindWithTag("Player").GetComponent<Transform>();
         zombie = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        zombieAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,12 +34,12 @@ public class Zombie : MonoBehaviour
         {
             if (health <= 0)
             {
-                Destroy(gameObject);
+                zombieAnim.SetBool("Death", true);
+                Destroy(gameObject, 2);
             }
             else{
-            health-- ;
+                health-- ;
             }
         }
-        
     }
 }
