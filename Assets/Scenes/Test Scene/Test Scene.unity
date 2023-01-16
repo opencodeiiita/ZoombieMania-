@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 439138208}
   - component: {fileID: 439138211}
   - component: {fileID: 439138212}
+  - component: {fileID: 439138213}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -871,7 +872,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 39.73266
+  field of view: 28
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -950,11 +951,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseSensitivity: 3
+  _adsMouseSensitivity: 3
   _target: {fileID: 1555140005}
+  _CameraZoom: 5
   _distanceFromTarget: 10
-  _shoulderDistance: 3.96
+  zoomShoulderDistance: -3
+  _defaultShoulderDistance: -3.96
   _smoothTime: 0
   _rotationXMinMax: {x: -40, y: 40}
+--- !u!114 &439138213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439138207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c658946dcd3da04cbd0f20579877fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomFOV: 18
 --- !u!1 &468182919
 GameObject:
   m_ObjectHideFlags: 0
